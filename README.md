@@ -1,4 +1,4 @@
-# Hotel Booking Demo (Selenium-friendly)
+# Hotel Booking Demo (Selenium)
 
 Simple Hotel Booking demo app designed for Selenium UI automation testing.
 
