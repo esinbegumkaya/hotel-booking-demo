@@ -1,0 +1,18 @@
+{
+  "name": "hotel-booking-demo",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "api": "node ./api/node_modules/json-server/bin/index.js --watch ./api/db.json --port 3001 --host 0.0.0.0",
+    "ui": "cd ui && npm run dev",
+    "ui:build": "cd ui && npm run build",
+    "dev": "concurrently \"npm:api\" \"npm:ui\"",
+    "start:api": "npm run api"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

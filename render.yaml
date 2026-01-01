@@ -1,0 +1,22 @@
+# Render configuration for two services: api (web service) and ui (static site)
+# Replace repo and env values in Render UI if needed.
+
+services:
+  - type: web
+    name: hotel-booking-demo-api
+    env: node
+    plan: free
+    buildCommand: "npm install --prefix api"
+    startCommand: "npm run start --prefix api"
+    repo: https://github.com/your-repo/hotel-booking-demo
+
+  - type: static
+    name: hotel-booking-demo-ui
+    env: static
+    plan: free
+    buildCommand: "npm install --prefix ui && npm run build --prefix ui"
+    publishPath: "ui/dist"
+    repo: https://github.com/your-repo/hotel-booking-demo
+    envVars:
+      - key: VITE_API_URL
+        value: "https://hotel-booking-demo-api.onrender.com"

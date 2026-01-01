@@ -1,0 +1,8 @@
+body{font-family:Arial,Helvetica,sans-serif;margin:20px;color:#222}
+main{max-width:600px;margin:0 auto}
+h1,h2{margin:0 0 16px}
+.form-row{margin:8px 0}
+input{padding:8px;width:100%;box-sizing:border-box}
+button{padding:10px 14px}
+.error{color:#d00}
+.card{border:1px solid #ddd;padding:12px;margin:8px 0;display:flex;justify-content:space-between;align-items:center}

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Booking</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main>
+    <h2>Booking Form</h2>
+    <div id="hotelInfo"></div>
+    <div class="form-row">
+      <label>First name</label>
+      <input data-testid="firstname-input" id="firstname" type="text" />
+    </div>
+    <div class="form-row">
+      <label>Last name</label>
+      <input data-testid="lastname-input" id="lastname" type="text" />
+    </div>
+    <div class="form-row">
+      <label>Email</label>
+      <input data-testid="email-input" id="email" type="email" />
+    </div>
+    <div class="form-row">
+      <div data-testid="form-error" id="formError" class="error" aria-live="polite"></div>
+    </div>
+    <div class="form-row">
+      <button data-testid="confirm-booking-btn" id="confirmBtn">Confirm Booking</button>
+    </div>
+  </main>
+  <script>
+    const API = 'http://localhost:3001';
+    const selection = JSON.parse(localStorage.getItem('hotel_selection') || '{}');
+    const hotelInfo = document.getElementById('hotelInfo');
+    const formError = document.getElementById('formError');
+
+    if (selection && selection.hotelName){
+      hotelInfo.textContent = 'Hotel: ' + selection.hotelName + ' — ' + selection.checkin + ' to ' + selection.checkout;
+    }
+
+    document.getElementById('confirmBtn').addEventListener('click', function(){
+      const firstname = document.getElementById('firstname').value.trim();
+      const lastname = document.getElementById('lastname').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if (!firstname || !lastname || !email){
+        formError.textContent = 'Please fill all fields.';
+        return;
+      }
+      formError.textContent = '';
+      const payload = {
+        firstname,
+        lastname,
+        email,
+        hotelId: selection.hotelId,
+        checkin: selection.checkin,
+        checkout: selection.checkout
+      };
+      fetch(API + '/bookings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(r => r.json())
+      .then(data => {
+        // redirect to confirmation with id
+        location.href = 'confirmation.html?id=' + data.id;
+      })
+      .catch(() => {
+        formError.textContent = 'Failed to create booking.';
+      });
+    });
+  </script>
+</body>
+</html>
