@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Search Hotels</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main>
+    <h2>Search Hotels</h2>
+    <div class="form-row">
+      <label>City</label>
+      <input data-testid="city-input" id="city" type="text" placeholder="City" />
+    </div>
+    <div class="form-row">
+      <label>Check-in</label>
+      <input data-testid="checkin-input" id="checkin" type="date" />
+    </div>
+    <div class="form-row">
+      <label>Check-out</label>
+      <input data-testid="checkout-input" id="checkout" type="date" />
+    </div>
+    <div class="form-row">
+      <div data-testid="date-error" id="dateError" class="error" aria-live="polite"></div>
+    </div>
+    <div class="form-row">
+      <button data-testid="search-btn" id="searchBtn">Search</button>
+    </div>
+  </main>
+  <script>
+    const searchBtn = document.getElementById('searchBtn');
+    const dateError = document.getElementById('dateError');
+
+    function validDates(ci, co){
+      if (!ci || !co) return false;
+      const a = new Date(ci);
+      const b = new Date(co);
+      return a < b;
+    }
+
+    searchBtn.addEventListener('click', function(){
+      const city = document.getElementById('city').value.trim();
+      const checkin = document.getElementById('checkin').value;
+      const checkout = document.getElementById('checkout').value;
+      if (!validDates(checkin, checkout)){
+        dateError.textContent = 'Check-out date must be after check-in date.';
+        return;
+      }
+      dateError.textContent = '';
+      const search = { city, checkin, checkout };
+      localStorage.setItem('hotel_search', JSON.stringify(search));
+      location.href = 'results.html';
+    });
+  </script>
+</body>
+</html>

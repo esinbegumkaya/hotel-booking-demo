@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Results</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main>
+    <h2>Available Hotels</h2>
+    <div id="results"></div>
+  </main>
+  <script>
+    const API = 'http://localhost:3001';
+    const resultsEl = document.getElementById('results');
+    const search = JSON.parse(localStorage.getItem('hotel_search') || '{}');
+
+    fetch(API + '/hotels')
+      .then(r => r.json())
+      .then(hotels => {
+        if (!Array.isArray(hotels) || hotels.length === 0){
+          resultsEl.textContent = 'No hotels found.';
+          return;
+        }
+        hotels.forEach(h => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          const name = document.createElement('div');
+          name.dataset.testid = 'hotel-name';
+          name.textContent = h.name;
+          const btn = document.createElement('button');
+          btn.dataset.testid = 'select-hotel-btn';
+          btn.textContent = 'Select';
+          btn.addEventListener('click', function(){
+            const bookingSelection = {
+              hotelId: h.id,
+              hotelName: h.name,
+              checkin: search.checkin,
+              checkout: search.checkout,
+              city: search.city
+            };
+            localStorage.setItem('hotel_selection', JSON.stringify(bookingSelection));
+            location.href = 'booking.html';
+          });
+          card.appendChild(name);
+          card.appendChild(btn);
+          resultsEl.appendChild(card);
+        });
+      });
+  </script>
+</body>
+</html>

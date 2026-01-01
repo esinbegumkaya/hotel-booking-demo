@@ -1,0 +1,8 @@
+{
+  "hotels": [
+    { "id": 1, "name": "Grand Plaza" },
+    { "id": 2, "name": "Sea View Resort" },
+    { "id": 3, "name": "Mountain Inn" }
+  ],
+  "bookings": []
+}
