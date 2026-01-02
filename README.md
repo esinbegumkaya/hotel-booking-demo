@@ -12,7 +12,7 @@ This project was created as part of an academic **Test Automation Term Project**
 
 This project covers **both parts of the assignment**:
 
-### 1️⃣ API Test Automation – Postman
+### 1️-API Test Automation – Postman
 - REST API tested using Postman
 - Positive, Negative, and Edge case scenarios
 - HTTP methods: GET, POST, PUT, DELETE
@@ -21,7 +21,7 @@ This project covers **both parts of the assignment**:
 - Postman Collections and Environments
 - Collection Runner execution
 
-### 2️⃣ UI Test Automation – Selenium
+### 2️-UI Test Automation – Selenium
 - Fully automated UI tests using Selenium WebDriver (ChromeDriver)
 - Stable locator strategies (`data-testid`, `id`, `css`, `xpath`)
 - Negative and edge case scenarios included
