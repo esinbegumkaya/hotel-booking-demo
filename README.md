@@ -68,6 +68,7 @@ These URLs are used in **both Postman API tests and Selenium UI tests**.
 
 ### Repository Files
 postman/
+
 ├── Booking API Test Collection.postman_collection.json
 
 └── HotelBooking.postman_environment.json
@@ -99,6 +100,7 @@ https://esinbegumkaya-930706.postman.co/workspace/Param.com~6aecd15d-8277-4f8a-9
 
 ### Folder Structure
 selenium/
+
 └── tests/
 
 ├── 01_bookingFlow_happyPath.test.js
