@@ -10,7 +10,7 @@ This project was created as part of an academic **Test Automation Term Project**
 
 ## Project Scope
 
-This project covers **both parts of the assignment**:
+This project covers:
 
 ### 1️-API Test Automation – Postman
 - REST API tested using Postman
