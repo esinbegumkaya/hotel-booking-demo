@@ -22,14 +22,43 @@ export default function Booking(){
   }
 
   return (
-    <main>
-      <h2>Booking Form</h2>
-      <div id="hotelInfo">{selection && selection.hotelName ? `Hotel: ${selection.hotelName} — ${selection.checkin} to ${selection.checkout}` : ''}</div>
-      <div className="form-row"><label>First name</label><input data-testid="firstname-input" value={firstname} onChange={e=>setFirstname(e.target.value)} /></div>
-      <div className="form-row"><label>Last name</label><input data-testid="lastname-input" value={lastname} onChange={e=>setLastname(e.target.value)} /></div>
-      <div className="form-row"><label>Email</label><input data-testid="email-input" type="email" value={email} onChange={e=>setEmail(e.target.value)} /></div>
-      <div className="form-row"><div data-testid="form-error" className="error" aria-live="polite">{error}</div></div>
-      <div className="form-row"><button data-testid="confirm-booking-btn" onClick={onConfirm}>Confirm Booking</button></div>
+    <main className="booking-page">
+      <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+        <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>✍️</div>
+        <h2>Booking Form</h2>
+        <p style={{ color: 'var(--text-secondary)', marginTop: '0.5rem' }}>
+          Complete your reservation details
+        </p>
+      </div>
+      {selection && selection.hotelName && (
+        <div id="hotelInfo">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+            <span style={{ fontSize: '1.5rem' }}>🏨</span>
+            <strong>{selection.hotelName}</strong>
+          </div>
+          <div style={{ fontSize: '0.95rem', opacity: 0.9 }}>
+            📅 {selection.checkin} → {selection.checkout}
+          </div>
+        </div>
+      )}
+      <div className="form-row">
+        <label>👤 First name</label>
+        <input data-testid="firstname-input" value={firstname} onChange={e=>setFirstname(e.target.value)} placeholder="Enter your first name" />
+      </div>
+      <div className="form-row">
+        <label>👤 Last name</label>
+        <input data-testid="lastname-input" value={lastname} onChange={e=>setLastname(e.target.value)} placeholder="Enter your last name" />
+      </div>
+      <div className="form-row">
+        <label>📧 Email</label>
+        <input data-testid="email-input" type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="your.email@example.com" />
+      </div>
+      <div className="form-row">
+        <div data-testid="form-error" className="error" aria-live="polite">{error}</div>
+      </div>
+      <div className="form-row">
+        <button data-testid="confirm-booking-btn" onClick={onConfirm}>✅ Confirm Booking</button>
+      </div>
     </main>
   )
 }

@@ -15,9 +15,46 @@ export default function Confirmation(){
   },[API])
 
   return (
-    <main>
-      <h2 data-testid="success-message">Booking Confirmed</h2>
-      <div>Reservation ID: <span data-testid="reservation-id">{resId}</span></div>
+    <main className="confirmation-page">
+      <div style={{ textAlign: 'center' }}>
+        <div style={{ fontSize: '5rem', marginBottom: '1rem', animation: 'fadeIn 0.5s ease-in' }}>✅</div>
+        <h2 data-testid="success-message">Booking Confirmed!</h2>
+        <p style={{ color: 'var(--text-secondary)', marginTop: '0.5rem', marginBottom: '2rem', fontSize: '1.1rem' }}>
+          Your reservation has been successfully created
+        </p>
+        <div style={{ marginTop: '2rem' }}>
+          <div style={{ color: 'var(--text-secondary)', marginBottom: '0.75rem', fontSize: '0.95rem' }}>
+            Reservation ID:
+          </div>
+          <div data-testid="reservation-id" style={{ 
+            display: 'inline-block', 
+            background: 'var(--bg-gradient)', 
+            color: 'white', 
+            padding: '1rem 2.5rem', 
+            borderRadius: 'var(--border-radius-sm)', 
+            fontWeight: 600, 
+            fontSize: '1.5rem', 
+            boxShadow: 'var(--shadow-lg)',
+            letterSpacing: '0.05em'
+          }}>
+            {resId}
+          </div>
+        </div>
+        <div style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid #e5e7eb' }}>
+          <button 
+            onClick={() => window.location.hash = '#/'} 
+            style={{ 
+              background: 'transparent', 
+              color: 'var(--primary-color)', 
+              border: '2px solid var(--primary-color)',
+              boxShadow: 'none',
+              maxWidth: '250px'
+            }}
+          >
+            ← Back to Home
+          </button>
+        </div>
+      </div>
     </main>
   )
 }

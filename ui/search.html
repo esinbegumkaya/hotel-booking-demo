@@ -11,7 +11,12 @@
     <h2>Search Hotels</h2>
     <div class="form-row">
       <label>City</label>
-      <input data-testid="city-input" id="city" type="text" placeholder="City" />
+      <input data-testid="city-input" id="city" type="text" list="cities-list" placeholder="Select or type a city" />
+      <datalist id="cities-list">
+        <option value="İstanbul"></option>
+        <option value="Ankara"></option>
+        <option value="İzmir"></option>
+      </datalist>
     </div>
     <div class="form-row">
       <label>Check-in</label>
