@@ -1,8 +1,99 @@
 {
   "hotels": [
-    { "id": 1, "name": "Grand Plaza" },
-    { "id": 2, "name": "Sea View Resort" },
-    { "id": 3, "name": "Mountain Inn" }
+    {
+      "id": 1,
+      "name": "Grand Plaza",
+      "city": "İstanbul"
+    },
+    {
+      "id": 2,
+      "name": "Sea View Resort",
+      "city": "İstanbul"
+    },
+    {
+      "id": 3,
+      "name": "Mountain Inn",
+      "city": "İstanbul"
+    },
+    {
+      "id": 4,
+      "name": "Hagia Sophia Grand Hotel",
+      "city": "İstanbul"
+    },
+    {
+      "id": 5,
+      "name": "Bosphorus Palace",
+      "city": "İstanbul"
+    },
+    {
+      "id": 6,
+      "name": "Ankara Grand Hotel",
+      "city": "Ankara"
+    },
+    {
+      "id": 7,
+      "name": "Atatürk Plaza",
+      "city": "Ankara"
+    },
+    {
+      "id": 8,
+      "name": "Capital City Resort",
+      "city": "Ankara"
+    },
+    {
+      "id": 9,
+      "name": "Ankara Metropolitan",
+      "city": "Ankara"
+    },
+    {
+      "id": 10,
+      "name": "Kızılay Business Hotel",
+      "city": "Ankara"
+    },
+    {
+      "id": 11,
+      "name": "Aegean Coast Resort",
+      "city": "İzmir"
+    },
+    {
+      "id": 12,
+      "name": "Konak Luxury Hotel",
+      "city": "İzmir"
+    },
+    {
+      "id": 13,
+      "name": "Alsancak Grand",
+      "city": "İzmir"
+    },
+    {
+      "id": 14,
+      "name": "İzmir Marina Hotel",
+      "city": "İzmir"
+    },
+    {
+      "id": 15,
+      "name": "Efes Palace",
+      "city": "İzmir"
+    }
   ],
-  "bookings": []
+  "bookings": [
+    {
+      "firstname": "test",
+      "lastname": "cus",
+      "email": "your@gmail.com",
+      "hotelId": 7,
+      "checkin": "2026-01-09",
+      "checkout": "2026-01-23",
+      "id": 1
+    },
+    {
+      "firstname": "test",
+      "lastname": "user",
+      "email": "user@gmail.com",
+      "hotelId": 11,
+      "checkin": "2026-01-21",
+      "checkout": "2026-01-30",
+      "id": 2
+    }
+  ]
 }

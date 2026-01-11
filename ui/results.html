@@ -18,7 +18,12 @@
 
     fetch(API + '/hotels')
       .then(r => r.json())
-      .then(hotels => {
+      .then(allHotels => {
+        const normalizeCity = (city) => city.toLowerCase().replace(/[ıİ]/g, 'i').replace(/[şŞ]/g, 's').replace(/[ğĞ]/g, 'g').replace(/[üÜ]/g, 'u').replace(/[öÖ]/g, 'o').replace(/[çÇ]/g, 'c')
+        const hotels = search.city 
+          ? allHotels.filter(h => h.city && normalizeCity(h.city) === normalizeCity(search.city))
+          : allHotels;
+        
         if (!Array.isArray(hotels) || hotels.length === 0){
           resultsEl.textContent = 'No hotels found.';
           return;
